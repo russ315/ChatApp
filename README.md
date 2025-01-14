@@ -24,11 +24,9 @@ Backend: Spring Boot
 
 WebSocket: For real-time communication
 
-Database: MySQL or PostgreSQL
+Database: PostgreSQL
 
-Frontend: React.js or Angular (optional, depending on your choice)
-
-Build Tool: Maven or Gradle
+Frontend: React
 
 Prerequisites
 
@@ -36,11 +34,10 @@ Ensure you have the following installed on your system:
 
 Java 17 or higher
 
-Maven or Gradle
 
-MySQL or PostgreSQL
+PostgreSQL
 
-Node.js (if using a frontend framework)
+Node.js 
 
 Getting Started
 
