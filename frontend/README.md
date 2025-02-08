@@ -25,8 +25,8 @@ export default tseslint.config({
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Replace `tseslint.com.example.backend.configs.recommended` to `tseslint.com.example.backend.configs.recommendedTypeChecked` or `tseslint.com.example.backend.configs.strictTypeChecked`
+- Optionally add `...tseslint.com.example.backend.configs.stylisticTypeChecked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
 ```js
@@ -43,8 +43,8 @@ export default tseslint.config({
   rules: {
     // other rules...
     // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.com.example.backend.configs.recommended.rules,
+    ...react.com.example.backend.configs['jsx-runtime'].rules,
   },
 })
 ```

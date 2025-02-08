@@ -1,6 +1,6 @@
-﻿package repositories;
+package com.example.backend.repository;
 
-import entities.ChatRoom;
+import com.example.backend.model.ChatRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

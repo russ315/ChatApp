@@ -1,6 +1,6 @@
-﻿package repositories;
+package com.example.backend.repository;
 
-import entities.Message;
+import com.example.backend.model.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
