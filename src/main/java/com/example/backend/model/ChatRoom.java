@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,12 +24,14 @@ public class ChatRoom {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 
     @JoinTable(
             name = "chatroom_users",
             joinColumns = @JoinColumn(name = "chatroom_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
+    @JsonIgnoreProperties("chatRooms")
+
     private Set<User> users;
 }

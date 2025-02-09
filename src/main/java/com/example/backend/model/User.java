@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties("chatRooms")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users",cascade = CascadeType.ALL)
     private Set<ChatRoom> chatRooms;
 
 

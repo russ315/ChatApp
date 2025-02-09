@@ -21,8 +21,5 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        return ResponseEntity.ok(userRepository.save(user));
-    }
+
 }
