@@ -6,6 +6,7 @@ import com.example.backend.dto.UserRegisterDto;
 import com.example.backend.dto.UserLoginDto;
 import com.example.backend.dto.UserRegisterDto;
 import com.example.backend.service.AuthService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody UserLoginDto request) {
-        return ResponseEntity.ok(authService.login(request));
+        var result = authService.login(request);
+        if(result.getStatusCode() == HttpStatus.BAD_REQUEST.value()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
+        }
+        return ResponseEntity.ok(result);
     }
 }

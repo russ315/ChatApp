@@ -34,17 +34,17 @@ public class AuthService {
         userRepository.save(user);
         String token = jwtUtil.generateToken(user);
 
-        return new AuthResponse(token);
+        return new AuthResponse(200,token);
     }
 
     public AuthResponse login(UserLoginDto request) {
         Optional<User> user = userRepository.findByUsername(request.getUsername());
 
         if (user.isEmpty() || !passwordEncoder.matches(request.getPassword(), user.get().getPassword())) {
-            return new AuthResponse("Invalid username or password");
+            return new AuthResponse(400,"Invalid username or password");
         }
 
         String token = jwtUtil.generateToken(user.get());
-        return new AuthResponse(token);
+        return new AuthResponse(200,token);
     }
 }
