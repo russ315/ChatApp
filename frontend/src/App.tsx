@@ -6,6 +6,7 @@ import {BrowserRouter, Navigate, redirect, Route, Routes} from "react-router-dom
 import Login from "./components/Login.tsx";
 import Register from "./components/Register.tsx";
 import {AuthService} from "./services/authService.ts";
+import { useNavigate } from "react-router-dom";
 
 const App: React.FC = () => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -20,7 +21,7 @@ const App: React.FC = () => {
     const handleLogin = async (username: string, password: string) => {
         try {
             const response = await AuthService.login(username, password);
-            localStorage.setItem("token", response.data.data);
+            localStorage.setItem("token", response.data);
             setToken(response.data);
             setIsLoggedIn(true);
         } catch (error) {
@@ -57,6 +58,8 @@ const App: React.FC = () => {
                 </Routes>
             </BrowserRouter>
         </AuthContext.Provider>
+    )
+
 
 }
 

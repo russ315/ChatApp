@@ -1,4 +1,5 @@
-﻿import React, { useState } from "react";
+﻿import React, {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 interface LoginProps {
     setIsRegistering: (value: boolean) => void;
@@ -9,8 +10,14 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ setIsRegistering, setIsLoggedIn,handleLogin }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        if (setIsLoggedIn) {
+            navigate("/chat");
 
+        }
+    }, [setIsLoggedIn, navigate]);
     const onLogin = async () => {
         await handleLogin(username, password);
         setIsLoggedIn(true);

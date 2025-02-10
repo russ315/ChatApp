@@ -14,12 +14,14 @@ interface Message {
 
 const ChatApp: React.FC = () => {
     const auth = useAuth();
-    const navigate = useNavigate();
     const handleLogout = auth?.handleLogout ?? (() => {});
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!auth?.isLoggedIn) {
-            navigate("/login");
+            navigate("login");
+
         }
     }, [auth?.isLoggedIn, navigate]);
 
